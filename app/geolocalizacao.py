@@ -4,8 +4,9 @@ import requests
 import json
 
 enderecos_banco = []
+queryset = Usuario.objects.all()
 
-for usuario in models.Usuario:
+for usuario in queryset:
     enderecos_banco.append(usuario.objects.get(endereco))
 
 
