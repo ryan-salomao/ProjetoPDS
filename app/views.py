@@ -50,18 +50,21 @@ def geo(request):
 def geo_result(request, pk):
     try:
         usuario = Usuario.objects.get(pk=pk)
-        '''enderecos_banco = []
-        queryset = Usuario.objects.all()
-
-        for usuario in queryset:
-            enderecos_banco.append(usuario.objects.get(endereco))
-
-        buscar_distancias(usuario.endereco, enderecos_banco)'''
-
     except Usuario.DoesNotExist:
         raise Http404("Usuário não existe")
+    
+    enderecos_banco = []
+    distancias = []
+    queryset = Usuario.objects.all()
+
+    for user in queryset:
+        enderecos_banco.append(user.endereco)
+
+    distancias = buscar_distancias(usuario.endereco, enderecos_banco)
+
     context = {
         'usuario': usuario,
+        'distancias': distancias,
     }
     return render(request, "geo_result.html", context)
 

@@ -20,17 +20,17 @@
         <table class="table">
           <thead class="thead-dark">
             <tr>
-              <th scope="col">#</th>
-              <th scope="col">Nome</th>
               <th scope="col">Endereço</th>
+              <th scope="col">Distancia</th>
             </tr>
           </thead>
           <tbody>
+            {% for endereco, distancia in distancias %}
              <tr>
-              <th>{{usuario.id}}</th>
-              <td>{{usuario.nome}}</td>
-              <td>{{usuario.endereco}}</td>
+              <td>{{endereco}}</td>
+              <td>{{distancia}} Km</td>
             </tr>
+          {% endfor %}
           </tbody>
         </table>
     </div>
