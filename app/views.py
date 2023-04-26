@@ -21,11 +21,15 @@ def index1(request):
     data['db'] = Funcionario.objects.all()
     return render(request, 'index1.html', data)
 
-def create(request):
+def createuser(request):
     form = UsuarioForm(request.POST or None)
-    if form.is_valid():
+    if request.method == 'POST' and form.is_valid():
         form.save()
         return redirect('home')
+    context = {
+        'form': form,
+    }
+    return render(request, 'form.html', context)
 
 def view(request, pk):
     data = {}
@@ -70,6 +74,6 @@ def geo_result(request, pk):
 
 def create(request):
     form = FuncionarioForm(request.POST or None)
-    if form.is_valid():
+    if request.method == 'POST' and form.is_valid():
         form.save()
         return redirect('home')

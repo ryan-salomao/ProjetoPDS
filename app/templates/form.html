@@ -15,11 +15,14 @@
     </div>
 
     <div class="col-8 m-auto pt-4 pb-2 text-center">
-        <form name="form" id="form" action="/create/" method="post">
+        <form name="form" id="form" action="{% url 'createuser' %}" method="post">
             {% csrf_token %}
             <div class="form-group mt-4">Nome: {{form.nome}}</div>
+            {{form.nome.errors}}
             <div class="form-group mt-4">Endereço: {{form.endereco}}</div>
+            {{form.endereco.errors}}
             <div class="form-group mt-4">Senha: {{form.senha}}</div>
+            {{form.senha.errors}}
             <input type="submit" class="btn btn-success" value="Salvar">
         </form>
     </div>
