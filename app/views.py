@@ -16,6 +16,11 @@ def form(request):
     data['form'] = UsuarioForm()
     return render(request, 'form.html', data)
 
+def index1(request):
+    data = {}
+    data['db'] = Funcionario.objects.all()
+    return render(request, 'index1.html', data)
+
 def create(request):
     form = UsuarioForm(request.POST or None)
     if form.is_valid():
