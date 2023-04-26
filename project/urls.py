@@ -16,7 +16,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from app.views import home, form, home1, form1, create, view, geo
+from app.views import home, form, home1, form1, create, view, geo, geo_result
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -27,4 +27,5 @@ urlpatterns = [
     path('create/', create, name='create'),
     path('view/<int:pk>/', view, name='view'),
     path('geo/', geo, name='geo'),
+    path('geo_result/', geo_result, name='geo_result'),
 ]

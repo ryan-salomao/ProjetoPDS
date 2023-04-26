@@ -10,7 +10,7 @@
 <body>
     <div class="App" style="color: white">
         <header class="App-header text-center" style="background-color: #CA9DF0">
-            <br><h1>Endereço mais próximo</h1><br><br>
+            <br><h1>Endereço mais próximo do usuario: </h1>{{usuarios.nome}}<br>{{usuarios.endereco}}<br>
         </header>
     </div>
 
@@ -23,17 +23,17 @@
               <th scope="col">#</th>
               <th scope="col">Nome</th>
               <th scope="col">Endereço</th>
-              <th scope="col">Comparar</th>
+              <th scope="col">Distancia em Km</th>
             </tr>
           </thead>
           <tbody>
-          {% for dbs in db %}
+          {% for usuario in usuarios %}
              <tr>
-              <th>{{dbs.id}}</th>
-              <td>{{dbs.nome}}</td>
-              <td>{{dbs.endereco}}</td>
+              <th>{{usuario.id}}</th>
+              <td>{{usuario.nome}}</td>
+              <td>{{usuario.endereco}}</td>
               <td>
-                  <a href="/geo_result" class="btn btn-success" style="background-color: #8352F0">Ver</a>
+                  <p>distancia</p>
               </td>
             </tr>
           {% endfor %}
@@ -42,7 +42,7 @@
     </div>
 
     <div class="col-8 m-auto pt-4 pb-5 text-center">
-        <a href="/" class="btn text-white" style="background-color: #8352F0">Voltar</a>
+        <a href="/geo" class="btn text-white" style="background-color: #8352F0">Voltar</a>
     </div>
 </body>
 </html>

@@ -37,10 +37,15 @@ def form1(request):
     return render(request, 'form1.html', data)
 
 def geo(request):
+    data = {}
+    data['db'] = Usuario.objects.all()
+    return render(request, 'geo.html', data)
+
+def geo_result(request):
     context = {
         'usuarios': Usuario.objects.all(),
     }
-    return render(request, 'geo.html', context)
+    return render(request, 'geo_result.html', context)
 
 def create(request):
     form = FuncionarioForm(request.POST or None)
