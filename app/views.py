@@ -3,6 +3,7 @@ from app.forms import UsuarioForm
 from app.models import Usuario
 from app.forms import FuncionarioForm
 from app.models import Funcionario
+from app.geolocalizacao import buscar_distancias
 
 # Create your views here.
 def home(request):
@@ -41,11 +42,23 @@ def geo(request):
     data['db'] = Usuario.objects.all()
     return render(request, 'geo.html', data)
 
-def geo_result(request):
+def geo_result(request, pk):
+    try:
+        usuario = Usuario.objects.get(pk=pk)
+        '''enderecos_banco = []
+        queryset = Usuario.objects.all()
+
+        for usuario in queryset:
+            enderecos_banco.append(usuario.objects.get(endereco))
+
+        buscar_distancias(usuario.endereco, enderecos_banco)'''
+
+    except Usuario.DoesNotExist:
+        raise Http404("Usuário não existe")
     context = {
-        'usuarios': Usuario.objects.all(),
+        'usuario': usuario,
     }
-    return render(request, 'geo_result.html', context)
+    return render(request, "geo_result.html", context)
 
 def create(request):
     form = FuncionarioForm(request.POST or None)

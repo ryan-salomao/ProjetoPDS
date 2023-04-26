@@ -10,7 +10,7 @@
 <body>
     <div class="App" style="color: white">
         <header class="App-header text-center" style="background-color: #CA9DF0">
-            <br><h1>Endereço mais próximo do usuario: </h1>{{usuarios.nome}}<br>{{usuarios.endereco}}<br>
+            <br><h1>Endereço mais próximo de: {{usuario.nome}}; {{usuario.endereco}}</h1><br><br>
         </header>
     </div>
 
@@ -23,20 +23,14 @@
               <th scope="col">#</th>
               <th scope="col">Nome</th>
               <th scope="col">Endereço</th>
-              <th scope="col">Distancia em Km</th>
             </tr>
           </thead>
           <tbody>
-          {% for usuario in usuarios %}
              <tr>
               <th>{{usuario.id}}</th>
               <td>{{usuario.nome}}</td>
               <td>{{usuario.endereco}}</td>
-              <td>
-                  <p>distancia</p>
-              </td>
             </tr>
-          {% endfor %}
           </tbody>
         </table>
     </div>

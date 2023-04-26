@@ -27,5 +27,5 @@ urlpatterns = [
     path('create/', create, name='create'),
     path('view/<int:pk>/', view, name='view'),
     path('geo/', geo, name='geo'),
-    path('geo_result/', geo_result, name='geo_result'),
+    path('geo/<int:pk>/', geo_result, name='geo_result'),
 ]

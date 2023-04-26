@@ -3,13 +3,6 @@ import geopy.distance as gd
 import requests
 import json
 
-enderecos_banco = []
-queryset = Usuario.objects.all()
-
-for usuario in queryset:
-    enderecos_banco.append(usuario.objects.get(endereco))
-
-
 def criterio(lista):
     return lista[1]
 
