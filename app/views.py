@@ -4,8 +4,8 @@ from app.models import Usuario
 from app.forms import FuncionarioForm
 from app.models import Funcionario
 from app.geolocalizacao import buscar_distancias
+from app.favoritos import favoritar_usuario, remover_usuario, lista_favoritos
 
-# Create your views here.
 def home(request):
     data = {}
     data['db'] = Usuario.objects.all()
@@ -71,6 +71,24 @@ def geo_result(request, pk):
         'distancias': distancias,
     }
     return render(request, "geo_result.html", context)
+
+def favoritar(user, pk):
+    favoritar_usuario(Usuario.objects.get(pk=pk))
+
+    return redirect('home')
+
+def desfavoritar(user, pk):
+    remover_usuario(Usuario.objects.get(pk=pk))
+
+    return redirect('favoritos')
+
+def favoritos(request):
+    funcionarios = lista_favoritos()
+
+    context = {
+        'funcionarios': funcionarios, 
+    }
+    return render(request, 'favoritos.html', context)
 
 def create(request):
     form = FuncionarioForm(request.POST or None)

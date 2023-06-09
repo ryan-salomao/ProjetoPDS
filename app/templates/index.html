@@ -21,7 +21,6 @@
               <th scope="col">#</th>
               <th scope="col">Nome</th>
               <th scope="col">Endereço</th>
-              <th scope="col">Senha</th>
               <th scope="col">Ações</th>
             </tr>
           </thead>
@@ -31,9 +30,9 @@
               <th>{{dbs.id}}</th>
               <td>{{dbs.nome}}</td>
               <td>{{dbs.endereco}}</td>
-              <td>{{dbs.senha}}</td>
               <td>
                   <a href="/view/{{dbs.id}}/" class="btn btn-success" style="background-color: #8352F0">Visualizar</a>
+                  <a href="{% url 'favoritar' dbs.id %}" class="btn btn-success" style="background-color: #8352F0">Favoritar</a>
               </td>
             </tr>
           {% endfor %}
@@ -47,6 +46,10 @@
         <hr>
     <div class="col-8 m-auto pt-3 pb-2 text-center">
         <a href="/geo" class="btn text-white" style="background-color: #8352F0">Geo</a>
+    </div>
+        <hr>
+    <div class="col-8 m-auto pt-3 pb-2 text-center">
+        <a href="/favoritos" class="btn text-white" style="background-color: #8352F0">Favoritos</a>
     </div>
 </body>
 </html>

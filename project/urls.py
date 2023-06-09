@@ -16,7 +16,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from app.views import home, form, home1, form1, create, createuser, view, geo, geo_result, index1
+from app.views import home, form, home1, form1, create, createuser, view, geo, geo_result, index1, favoritos, favoritar, desfavoritar
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -30,4 +30,7 @@ urlpatterns = [
     path('view/<int:pk>/', view, name='view'),
     path('geo/', geo, name='geo'),
     path('geo/<int:pk>/', geo_result, name='geo_result'),
+    path('favoritar/<int:pk>', favoritar, name='favoritar'),
+    path('desfavoritar/<int:pk>', desfavoritar, name='desfavoritar'),
+    path('favoritos/', favoritos, name='favoritos'),
 ]

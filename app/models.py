@@ -4,6 +4,8 @@ class Usuario(models.Model):
     nome = models.CharField(max_length=150)
     endereco = models.CharField(max_length=50)
     senha = models.CharField(max_length=6)
+    # favoritos = models.ManyToManyField('self', blank=True)
+
 
 class Funcionario(models.Model):
     NOTAS = [
