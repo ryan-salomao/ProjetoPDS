@@ -16,10 +16,10 @@ def form(request):
     data['form'] = UsuarioForm()
     return render(request, 'form.html', data)
 
-def index1(request):
+def pesquisa_result(request):
     data = {}
     data['db'] = Funcionario.objects.all()
-    return render(request, 'index1.html', data)
+    return render(request, 'pesquisa_result.html', data)
 
 def createuser(request):
     form = UsuarioForm(request.POST or None)
@@ -36,15 +36,15 @@ def view(request, pk):
     data['db'] = Usuario.objects.get(pk=pk)
     return render(request, 'view.html', data)
 
-def home1(request):
+def pesquisas(request):
     data = {}
     data['db'] = Funcionario.objects.all()
-    return render(request, 'index1.html', data)
+    return render(request, 'pesquisa_result.html', data)
 
-def form1(request):
+def pesquisa(request):
     data = {}
     data['form'] = FuncionarioForm()
-    return render(request, 'form1.html', data)
+    return render(request, 'pesquisa.html', data)
 
 def geo(request):
     data = {}

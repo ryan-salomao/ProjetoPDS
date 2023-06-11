@@ -24,8 +24,8 @@ class Funcionario(models.Model):
     atendimento = models.IntegerField(choices=NOTAS)
     pontualidade = models.IntegerField(choices=NOTAS)
     qualidade = models.IntegerField(choices=NOTAS)
-    experiencia = models.IntegerField(0)
-    nivel = models.IntegerField(0)
+    # experiencia = models.IntegerField(0)
+    # nivel = models.IntegerField(0)
 
     def media(self):
         return (self.atendimento + self.pontualidade + self.qualidade) / 3

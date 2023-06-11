@@ -16,17 +16,17 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from app.views import home, form, home1, form1, create, createuser, view, geo, geo_result, index1, favoritos, favoritar, desfavoritar
+from app.views import home, form, pesquisas, pesquisa, create, createuser, view, geo, geo_result, pesquisa_result, favoritos, favoritar, desfavoritar
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', home, name='home'),
     path('form/', createuser, name='form'),
-    path('home1/', home1, name='home1'),
-    path('form1/', form1, name='form1'),
+    path('pesquisas/', pesquisas, name='pesquisas'),
+    path('pesquisa/', pesquisa, name='pesquisa'),
     path('create/', create, name='create'),
     path('createuser/', createuser, name='createuser'),
-    path('index1/', index1, name='index1'),
+    path('pesquisa_result/', pesquisa_result, name='pesquisa_result'),
     path('view/<int:pk>/', view, name='view'),
     path('geo/', geo, name='geo'),
     path('geo/<int:pk>/', geo_result, name='geo_result'),
