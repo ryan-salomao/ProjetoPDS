@@ -10,3 +10,5 @@ def remover_usuario(usuario):
 
 def lista_favoritos():
     return favoritos
+
+# será feito na model Usuario
