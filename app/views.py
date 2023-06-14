@@ -90,6 +90,11 @@ def favoritos(request):
     }
     return render(request, 'favoritos.html', context)
 
+def filtro(request):
+    data = {}
+    data['db'] = Usuario.objects.all()
+    return render(request, 'filtro.html', data)
+
 def create(request):
     form = FuncionarioForm(request.POST or None)
     if request.method == 'POST' and form.is_valid():
