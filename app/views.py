@@ -95,6 +95,11 @@ def filtro(request):
     data['db'] = Usuario.objects.all()
     return render(request, 'filtro.html', data)
 
+def feedback_user(request):
+    data = {}
+    data['db'] = Usuario.objects.all()
+    return render(request, 'feedback_user.html', data)
+
 def create(request):
     form = FuncionarioForm(request.POST or None)
     if request.method == 'POST' and form.is_valid():

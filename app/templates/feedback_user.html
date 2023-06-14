@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Empresas</title>
+
+   <style>
+     .quadrado{
+       margin-left: 250px;
+       margin-right: 250px;
+       margin-top: 50px;
+       background-color: #C1A1E1;
+       border-radius: 10px;
+       padding: 30px;
+     }
+
+     .qinterno{
+       background-color: white;
+       border-radius: 10px;
+     }
+
+     .img{
+       margin-left: 10px;
+       margin-top: 10px;
+       margin-bottom: 10px;
+     }
+
+     .button {
+       margin-left:770px;
+     }
+
+     #lquadrado{
+       margin-bottom: 50px;
+     }
+   </style>
+
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+</head>
+<body>
+ <header>
+   <nav class="navbar navbar-expand-lg navbar navbar-dark bg-dark">
+       <a class="navbar-brand" href="#">MeChama</a>
+       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+         <span class="navbar-toggler-icon"></span>
+       </button>
+     
+       <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+         <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+           <li class="nav-item active">
+             <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+           </li>
+           <li class="nav-item">
+             <a class="nav-link" href="#">Link</a>
+           </li>
+           <li class="nav-item">
+             <a class="nav-link disabled" href="#">Disabled</a>
+           </li>
+         </ul>
+         <form class="form-inline my-2 my-lg-0">
+           <input class="form-control mr-sm-2" type="search" placeholder="Search">
+           <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+         </form>
+       </div>
+     </nav>
+  </header>
+  
+  <section>
+   <div class="quadrado">
+     <div class="qinterno">
+      <div>
+       <img class="img" src="https://http2.mlstatic.com/D_NQ_NP_628163-MLB44549268186_012021-O.jpg" alt="Avatar" style="width:100px">
+     </div>
+     <p>Shrek's CO.</p>
+     </div>
+     <div class="button">
+     <a href="/pesquisa"><button type="button" class="btn btn-success" style="border-radius:100px; margin-top:10px;">Adorei!</button></a>
+     <a href="/pesquisa"><button type="button" class="btn btn-danger" style="border-radius:100px; margin-top:10px;">Odiei.</button></a>
+   </div>
+ </div>
+
+ <div class="quadrado">
+   <div class="qinterno">
+    <div>
+     <img class="img" src="https://img.elo7.com.br/product/original/41D24CF/capa-painel-redondo-tema-o-gato-de-botas-tecido-1-50m-desenho-gato-de-botas.jpg" alt="Avatar" style="width:100px">
+    </div>
+    <p>Puss in Boots CO.</p>
+   </div>
+   <div class="button">
+   <a href="/pesquisa"><button type="button" class="btn btn-success" style="border-radius:100px; margin-top:10px;">Adorei!</button></a>
+   <a href="/pesquisa"><button type="button" class="btn btn-danger" style="border-radius:100px; margin-top:10px;">Odiei.</button></a>
+ </div>
+</div>
+
+<div class="quadrado" id="lquadrado">
+ <div class="qinterno">
+  <div>
+   <img class="img" src="https://http2.mlstatic.com/D_NQ_NP_628163-MLB44549268186_012021-O.jpg" alt="Avatar" style="width:100px">
+  </div>
+  <p>Gingerbread man CO.</p>
+ </div>
+ <div class="button">
+ <a href="/pesquisa"><button type="button" class="btn btn-success" style="border-radius:100px; margin-top:10px;">Adorei!</button></a>
+ <a href="/pesquisa"><button type="button" class="btn btn-danger" style="border-radius:100px; margin-top:10px;">Odiei.</button></a>
+</div>
+</div>
+</section>
+<div class="col-8 m-auto pt-4 pb-5 text-center">
+    <a href="/" class="btn text-white" style="background-color: #8352F0">Voltar</a>
+</div>
+</body>
+</html>
