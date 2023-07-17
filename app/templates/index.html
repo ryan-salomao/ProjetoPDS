@@ -58,7 +58,7 @@
 <body>
     <br>
     <div class="col-8 m-auto pt-3 pb-2 text-center">
-        <a href="/createuser" class="btn btn-success" style="background-color: #8352F0">Cadastrar</a>
+        <a href="/createuser" class="btn text-white" style="background-color: #8352F0">Cadastrar</a>
     </div>
     <br><br>
 
@@ -79,8 +79,8 @@
               <td>{{dbs.nome}}</td>
               <td>{{dbs.endereco}}</td>
               <td>
-                  <a href="/view/{{dbs.id}}/" class="btn btn-success" style="background-color: #8352F0">Visualizar</a>
-                  <a href="{% url 'favoritar' dbs.id %}" class="btn btn-success" style="background-color: #8352F0">Favoritar</a>
+                  <a href="/view/{{dbs.id}}/" class="btn text-white" style="background-color: #8352F0">Visualizar</a>
+                  <a href="{% url 'favoritar' dbs.id %}" class="btn text-white" style="background-color: #8352F0">Favoritar</a>
               </td>
             </tr>
           {% endfor %}
