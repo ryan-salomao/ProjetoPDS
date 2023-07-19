@@ -1,6 +1,6 @@
 from django import forms
 from app.models import Usuario
-from app.models import Funcionario
+from app.models import Atendimento
 
 # Create the form class.
 class UsuarioForm(forms.ModelForm):
@@ -13,5 +13,5 @@ class UsuarioForm(forms.ModelForm):
 
 class FuncionarioForm(forms.ModelForm):
     class Meta:
-        model = Funcionario
+        model = Atendimento
         fields = ['atendimento', 'pontualidade', 'qualidade']

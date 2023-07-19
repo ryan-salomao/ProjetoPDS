@@ -5,7 +5,7 @@ class Usuario(models.Model):
     email = models.EmailField(null=True, unique=True)
     estado = models.CharField(max_length=2)
     cidade = models.CharField(max_length=50)
-    CEP = models.CharField(max_length=9)
+    cep = models.CharField(max_length=9)
     endereco = models.CharField(max_length=100)
     senha = models.CharField(max_length=100)
     favoritos = models.ManyToManyField('self', blank=True)
@@ -26,7 +26,34 @@ class Usuario(models.Model):
     #     self.favoritos.remove(usuario)
 
 
+class Categoria(models.Model):
+    nome = models.CharField(max_length=50)
+
+    class Meta:
+        ordering = ["nome"]
+
+    def __str__(self):
+        return self.nome
+
+
 class Funcionario(models.Model):
+    usuario = models.OneToOneField(Usuario, on_delete=models.CASCADE, verbose_name="usuário")
+    categorias = models.ManyToManyField(Categoria)
+
+    class Meta:
+        verbose_name = "Funcionário"
+        verbose_name_plural = "Funcionários"
+        ordering = ["-id"]
+
+    def __str__(self):
+        return self.email
+
+    @property
+    def email(self):
+        return self.usuario.email
+
+
+class Atendimento(models.Model):
     NOTAS = [
         (-2, '😡'),
         (-1, '🙁'),
@@ -34,12 +61,21 @@ class Funcionario(models.Model):
         (1, '🙂'),
         (2, '😀')
     ]
+    funcionario = models.ForeignKey(Funcionario, on_delete=models.CASCADE, related_name="atendimentos", verbose_name="Funcionário", null=True)
     atendimento = models.IntegerField(choices=NOTAS)
     pontualidade = models.IntegerField(choices=NOTAS)
     qualidade = models.IntegerField(choices=NOTAS)
     # experiencia = models.IntegerField(0)
     # nivel = models.IntegerField(0)
 
+    class Meta:
+        verbose_name = "Atendimento"
+        verbose_name_plural = "Atendimentos"
+        ordering = ["-id"]
+    
+    def __str__(self):
+        return f"{self.funcionario.email} {self.id}"
+    
     def media(self):
         return (self.atendimento + self.pontualidade + self.qualidade) / 3
 
@@ -79,3 +115,6 @@ class Funcionario(models.Model):
         elif(self.ver_nivel() == 5):
             resultado_xp = f"Nível: {self.ver_nivel()}\nExperiência: {self.experiencia()} / 50"
         return resultado_xp
+
+
+

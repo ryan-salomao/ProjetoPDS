@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from app.forms import UsuarioForm
 from app.models import Usuario
 from app.forms import FuncionarioForm
-from app.models import Funcionario
+from app.models import Atendimento
 from app.geolocalizacao import buscar_distancias
 from app.favoritos import favoritar_usuario, remover_usuario, lista_favoritos
 
@@ -18,7 +18,7 @@ def form(request):
 
 def pesquisa_result(request):
     data = {}
-    data['db'] = Funcionario.objects.all()
+    data['db'] = Atendimento.objects.all()
     return render(request, 'pesquisa_result.html', data)
 
 def createuser(request):
@@ -38,7 +38,7 @@ def view(request, pk):
 
 def pesquisas(request):
     data = {}
-    data['db'] = Funcionario.objects.all()
+    data['db'] = Atendimento.objects.all()
     return render(request, 'pesquisa_result.html', data)
 
 def pesquisa(request):
