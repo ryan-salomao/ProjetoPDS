@@ -35,6 +35,14 @@ def view(request, pk):
     data['db'] = Usuario.objects.get(pk=pk)
     return render(request, 'view.html', data)
 
+def view_categoria(request, pk):
+    data = {}
+    obj = Categoria.objects.get(pk=pk)
+
+    data['db'] = obj
+    data['funcionarios'] = obj.funcionario_set.all()
+    return render(request, 'view_categoria.html', data)
+
 def pesquisas(request):
     data = {}
     data['db'] = Atendimento.objects.all()
