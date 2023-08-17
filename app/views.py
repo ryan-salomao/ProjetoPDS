@@ -1,8 +1,7 @@
 from django.shortcuts import render, redirect
 from app.forms import UsuarioForm
-from app.models import Usuario
+from app.models import Usuario, Atendimento, Funcionario, Categoria
 from app.forms import FuncionarioForm
-from app.models import Atendimento
 from app.geolocalizacao import buscar_distancias
 from app.favoritos import favoritar_usuario, remover_usuario, lista_favoritos
 
@@ -89,6 +88,12 @@ def favoritos(request):
         'funcionarios': funcionarios, 
     }
     return render(request, 'favoritos.html', context)
+
+def buscar_servico(request):
+    data = {}
+    data['db'] = Funcionario.objects.all()
+    data['categorias'] = Categoria.objects.all()
+    return render(request, 'buscar_servico.html', data)
 
 def filtro(request):
     data = {}
